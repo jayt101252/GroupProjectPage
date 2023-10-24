@@ -73,7 +73,7 @@ class MovieReview(models.Model):
 
 class Profile(models.Model):
     # Pulls profile associated with user
-    user = models.OneToOneField(User, on_delete=models.CASCADE, foreign_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Attribute to store profile picture, and default to baseline .jpg file
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     # Area to write about the user on their profile
