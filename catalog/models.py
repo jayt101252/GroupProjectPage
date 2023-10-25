@@ -65,10 +65,13 @@ class MovieReview(models.Model):
     movie = models.ForeignKey('Movie', on_delete=models.RESTRICT, null=True)
     user = models.ForeignKey('Profile', on_delete=models.RESTRICT, null=True)
 
-    @property
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.caption}: ({self.star_rating})'
+        return f'{self.caption}: ({str(self.star_rating)} {self.review_text})'
+
+    def get_absolute_url(self):
+        """Returns the URL to access a detail record for this book."""
+        return reverse('review_detail', args=[str(self.id)])
 
 
 class Profile(models.Model):
