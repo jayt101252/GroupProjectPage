@@ -130,7 +130,7 @@ import os
 
 
 
->>>>>>> ad22823ca48c50b482abb7bec6b667ee1d377bc2
+
 MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
