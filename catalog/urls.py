@@ -3,7 +3,7 @@ from django.views.static import serve
 
 from django.conf import setting
 
-from django.conf import settings
+
 
 from . import views
 
