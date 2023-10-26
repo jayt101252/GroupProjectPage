@@ -127,7 +127,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import os
-=======
+
 
 
 >>>>>>> ad22823ca48c50b482abb7bec6b667ee1d377bc2
