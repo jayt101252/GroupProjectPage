@@ -15,10 +15,6 @@ urlpatterns = [
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
         #serve static files when deployed
 
-]
-
-    
-    
     path('movie_list/', views.MovieListView.as_view(), name='movie_list'),
     path('movie_detail/<int:pk>', views.MovieDetailView.as_view(), name='movie_detail'),
             ]
