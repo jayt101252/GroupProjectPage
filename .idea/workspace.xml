@@ -7,7 +7,10 @@
     <list default="true" id="2fe755fc-efaf-4404-91aa-17a45b5674de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GroupProjectPage/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProjectPage/settings.py" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
+=======
+>>>>>>> ad22823ca48c50b482abb7bec6b667ee1d377bc2
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +52,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -62,8 +66,24 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jayt1/OneDrive/Desktop/ISQA3900Spring23/djangoProject1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> ad22823ca48c50b482abb7bec6b667ee1d377bc2
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GroupProjectPage" type="Python.DjangoServer" factoryName="Django server">
       <module name="GroupProjectPage" />
@@ -100,9 +120,16 @@
       <workItem from="1698071208790" duration="196000" />
       <workItem from="1698071553409" duration="48000" />
       <workItem from="1698071670816" duration="2615000" />
+<<<<<<< HEAD
       <workItem from="1698267043488" duration="794000" />
       <workItem from="1698267902018" duration="489000" />
       <workItem from="1698282404230" duration="2881000" />
+=======
+      <workItem from="1698246361040" duration="1282000" />
+      <workItem from="1698267912670" duration="11318000" />
+      <workItem from="1698280560769" duration="78000" />
+      <workItem from="1698287783947" duration="1798000" />
+>>>>>>> ad22823ca48c50b482abb7bec6b667ee1d377bc2
     </task>
     <servers />
   </component>
