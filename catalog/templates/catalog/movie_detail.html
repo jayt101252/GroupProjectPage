@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Title: {{ movie.title }}</h1>
+<p><strong>Director:</strong> <a href="">{{ movie.director }}</a></p> <!-- author
+detail link not yet defined -->
+<p><strong>Description:</strong> {{ movie.description }}</p>
+<p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+<p><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</p>
+<div style="margin-left:20px;margin-top:20px">
+</div>
+{% endblock %}
