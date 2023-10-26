@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Title: {{ movie.title }}</h1>
-<p><strong>Director:</strong> <a href="">{{ movie.director }}</a></p> <!-- author
-detail link not yet defined -->
-<p><strong>Description:</strong> {{ movie.description }}</p>
-<p><strong>Runtime:</strong> {{ movie.runtime }}</p>
-<p><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</p>
-<div style="margin-left:20px;margin-top:20px">
-</div>
+
+    <h1>Movie Title: {{ movie.title }}</h1>
+
+        <p><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></p>
+        <p><strong>Description:</strong> {{ movie.description }}</p>
+        <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+        <p><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</p>
+
+    <div style="margin-left:20px;margin-top:20px">
+    <hr>
+        <p><strong><a href="{%  url 'movie_list' %} "> Return to List of Movies </a></strong>
+    </p>
+    </div>
 {% endblock %}

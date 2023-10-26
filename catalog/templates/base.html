@@ -25,19 +25,27 @@
                     <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
                     <a class="nav-link" href="{% url 'movie_list' %}">All Movies</a>
-=======
-                    <a class="nav-link" href="#">All Movies</a>
->>>>>>> 25135bc04f0bf03a9f2cbd7710bcc38667febf50
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">All Directors</a>
+                    <a class="nav-link" href={% url 'director_list' %}>All Directors</a>
                 </li>
 
             </ul>
 
         </div>
+       <!--Display Login/Logout right-justified in navbar -->
+    <ul class="nav navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li><a class="nav-link" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
+            </li>
+
+        {% else %}
+            <li><a class="nav-link" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            </li>
+        {% endif %}
+    </ul>
+
     </div>
 </nav>
 
