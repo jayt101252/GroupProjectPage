@@ -7,7 +7,6 @@
     <list default="true" id="2fe755fc-efaf-4404-91aa-17a45b5674de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GroupProjectPage/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProjectPage/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <workItem from="1698246361040" duration="1282000" />
       <workItem from="1698267912670" duration="11318000" />
       <workItem from="1698280560769" duration="78000" />
-      <workItem from="1698287783947" duration="773000" />
+      <workItem from="1698287783947" duration="1798000" />
     </task>
     <servers />
   </component>
