@@ -3,14 +3,18 @@
 
     <h1>Movie Title: {{ movie.title }}</h1>
 
-        <p><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></p>
+        <h4><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></h4>
+        <br>
         <p><strong>Description:</strong> {{ movie.description }}</p>
-        <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
-        <p><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</p>
+        <li><strong>Runtime:</strong> {{ movie.runtime }}</li>
+        <li><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</li>
 
     <div style="margin-left:20px;margin-top:20px">
-    <hr>
+
+        <hr>
         <p><strong><a href="{%  url 'movie_list' %} "> Return to List of Movies </a></strong>
-    </p>
+        </p>
+
     </div>
+
 {% endblock %}

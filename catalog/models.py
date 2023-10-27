@@ -1,7 +1,9 @@
 from django.db import models
 from django.urls import reverse  # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User # Used to authenticate User identity against Django default User model
-import uuid  # Required for unique book instances
+from django.core.validators import MaxValueValidator, MinValueValidator
+from datetime import date, time
+
 
 class Genre(models.Model):
     """Model representing a book genre."""
@@ -58,7 +60,7 @@ class Movie(models.Model):
 class MovieReview(models.Model):
     """Model representing a review for a specific movie; to include a star rating out of 5."""
     caption = models.CharField(max_length=100)
-    star_rating = models.IntegerField(default=0)  # add star image functionality
+    star_rating = models.IntegerField(default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])  # add star image functionality
     review_text = models.TextField(max_length=300) # Review text
 
     # Foreign Keys to match movie review to a movie, and the profile leaving the review
@@ -86,3 +88,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
