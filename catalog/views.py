@@ -37,3 +37,20 @@ class DirectorListView(LoginRequiredMixin, generic.ListView):
 
 class DirectorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Director
+class DirectorCreate(CreateView):
+    model = Director
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'author_image']
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.save()
+        return HttpResponseRedirect(reverse('director_list'))
+
+class DirectorUpdate(UpdateView):
+    model = Director
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_image']
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.save()
+        return HttpResponseRedirect(reverse('director_list'))
