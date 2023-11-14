@@ -2,32 +2,34 @@
 {% block content %}
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+      <!-- display error messages if the info jas errors -->
+    <p class="alert alert-danger">Oops! Your username and password didn't match. Please try again.</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
+        <!-- shows a message to the user if they dont have access to a page -->
+      <p class="alert alert-danger">Sorry! Your account doesn't have access to this movie page. Please log in with the right credentials.
+</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p class="alert alert-info">Welcome! Please log in to explore this page.</p>
     {% endif %}
   {% endif %}
 
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login">
+      <!-- Input field for username -->
+   <label for="{{ form.username.id_for_label }}">
+       {{ form.username.label_tag }}
+   </label>
+      {{ form.username }}
+      <!-- Input field for password -->
+   <label for="{{ form.password.id_for_label }}">
+       {{ form.password.label_tag }}
+   </label>
+      {{ form.password }}
+    <input type="submit" class="btn btn-primary" value="Login">
     <input type="hidden" name="next" value="{{ next }}">
   </form>
-    
+
 {% endblock %}

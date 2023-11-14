@@ -5,6 +5,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic.edit import CreateView, UpdateView
 
 def index(request):
     """View function for home page of site."""
