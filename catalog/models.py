@@ -4,7 +4,6 @@ from django.contrib.auth.models import User # Used to authenticate User identity
 from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import date, time
 
-
 class Genre(models.Model):
     """Model representing a book genre."""
     name = models.CharField(max_length=200, help_text='Enter a movie genre (e.g. Sci-Fi or Horror)')
@@ -65,7 +64,7 @@ class MovieReview(models.Model):
 
     # Foreign Keys to match movie review to a movie, and the profile leaving the review
     movie = models.ForeignKey('Movie', on_delete=models.RESTRICT, null=True)
-    user = models.ForeignKey('Profile', on_delete=models.RESTRICT, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""

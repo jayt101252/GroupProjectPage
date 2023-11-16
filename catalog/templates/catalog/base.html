@@ -33,7 +33,7 @@
             </ul>
 
         </div>
-       <!--Display Login/Logout right-justified in navbar -->
+       <!--Display Login/Logout right-justified in navbar and link to register as user-->
     <ul class="nav navbar-nav ml-auto">
         {% if user.is_authenticated %}
             <li><a class="nav-link" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
@@ -42,11 +42,21 @@
         {% else %}
             <li><a class="nav-link" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             </li>
+
+            <li><a class="nav-link" href="{% url 'register' %}"><span class="glyphicon glyphicon-log-in"></span>Sign Up</a>
+            </li>
+
         {% endif %}
     </ul>
 
     </div>
 </nav>
+<!--- Container for User Welcome message --->
+<div class="container">
+    {% if user.is_authenticated %}
+        Welcome, {{ user.first_name }} {{ user.last_name }}
+    {% endif %}
+</div>
 
 <div class="container">
     <br/>

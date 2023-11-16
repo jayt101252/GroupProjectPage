@@ -27,7 +27,7 @@ def index(request):
         'num_visits': num_visits,
     }
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', context=context)
+    return render(request, 'catalog/index.html', context=context)
 class MovieListView(LoginRequiredMixin, generic.ListView):
     model = Movie
 class MovieDetailView(LoginRequiredMixin, generic.DetailView):
