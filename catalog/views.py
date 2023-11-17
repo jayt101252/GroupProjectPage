@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 
+
 def index(request):
     """View function for home page of site."""
     num_movies = Movie.objects.all().count()
@@ -28,13 +29,20 @@ def index(request):
     }
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'catalog/index.html', context=context)
+
+
 class MovieListView(LoginRequiredMixin, generic.ListView):
     model = Movie
+
+
 class MovieDetailView(LoginRequiredMixin, generic.DetailView):
     model = Movie
 
+
 class DirectorListView(LoginRequiredMixin, generic.ListView):
     model = Director
+
+
 class DirectorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Director
 
@@ -47,6 +55,7 @@ class DirectorCreate(CreateView):
         post = form.save(commit=False)
         post.save()
         return HttpResponseRedirect(reverse('director_list'))
+
 
 class DirectorUpdate(UpdateView):
     model = Director
