@@ -35,12 +35,13 @@ class MovieDetailView(LoginRequiredMixin, generic.DetailView):
 
 class DirectorListView(LoginRequiredMixin, generic.ListView):
     model = Director
-
 class DirectorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Director
+
+
 class DirectorCreate(CreateView):
     model = Director
-    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'author_image']
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_photo']
 
     def form_valid(self, form):
         post = form.save(commit=False)
@@ -49,7 +50,7 @@ class DirectorCreate(CreateView):
 
 class DirectorUpdate(UpdateView):
     model = Director
-    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_image']
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_photo']
 
     def form_valid(self, form):
         post = form.save(commit=False)
