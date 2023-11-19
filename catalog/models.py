@@ -64,7 +64,7 @@ class MovieReview(models.Model):
 
     # Foreign Keys to match movie review to a movie, and the profile leaving the review
     movie = models.ForeignKey('Movie', on_delete=models.RESTRICT, null=True)
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, null=True)
 
     def __str__(self):
         """String for representing the Model object."""

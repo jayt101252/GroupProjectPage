@@ -1,0 +1,23 @@
+{% extends "catalog/base.html" %}
+{% block content %}
+
+    <h1>{{ movieReview.caption }}</h1>
+        <br>
+        <h4>{{ movieReview.star_rating }}</h4>
+        <p>{{ movieReview.review_text }}</p>
+        <br>
+        <br>
+        <li><i>Left by {{ movieReview.user }}</i></li>
+
+    <div style="margin-left:20px;margin-top:20px">
+
+        <hr>
+        <p><strong><a href="{% url 'movieReview_list' %}"> See Reviews </a></strong>
+        </p>
+
+        <p><strong><a href="{{ movieReview.movie.get_absolute_url }}"> See Movie </a></strong>
+        </p>
+
+    </div>
+
+{% endblock %}

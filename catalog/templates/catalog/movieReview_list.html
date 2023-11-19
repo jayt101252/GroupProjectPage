@@ -1,12 +1,12 @@
 {% extends "catalog/base.html" %}
 {% block content %}
-    <h1>Movie List</h1>
-        {% if movie_list %}
+    <h1>All Reviews</h1>
+        {% if movieReview_list %}
             <ul>
 
-                {% for movie in movie_list %}
+                {% for movie in movieReview_list %}
                     <li>
-                        <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+                       <a href="{{ movieReview.get_absolute_url }}"><p>{{ movieReview.caption }}<p></a>
                     </li>
                 {% endfor %}
 
