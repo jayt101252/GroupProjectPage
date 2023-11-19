@@ -7,16 +7,15 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <form method="POST" class="form-group">
-   {% csrf_token %}
-
-   {{ form|crispy }}
-   <button type="submit" class="btn btn-success">Register</button>
-
+    <form method="POST" class="form-group" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success" style="width: 100%; padding: 10px; background-color: #4CAF50; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Register</button>
     </form>
 
-    <p><strong>Already have an account?</strong>
-          <a href="{% url 'login' %}"> Login Now</a>
+    <p style="text-align: center; margin-top: 10px;">
+        <strong>Already have an account?</strong>
+        <a href="{% url 'login' %}" style="color: #4CAF50; text-decoration: none;"> Login Now</a>
     </p>
 {% endblock %}
 </html>

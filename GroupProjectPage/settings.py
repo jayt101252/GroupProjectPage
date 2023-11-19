@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'crispy_forms',
 ]
+# Specify the Crispy Forms template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
