@@ -1,0 +1,15 @@
+{% extends "catalog/base.html" %}
+{% block content %}
+    <h1>All Reviews</h1>
+        {% if moviereview_list %}
+            <ul>
+                {% for movie in moviereview_list %}
+                    <li>
+                       <a href="{{ movie.get_absolute_url }}"><p>{{ movie.caption }}<p></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no movies reviewed yet.</p>
+        {% endif %}
+{% endblock %}
