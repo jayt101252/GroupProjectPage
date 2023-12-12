@@ -1,7 +1,15 @@
 {% extends "catalog/base.html" %}
 {% load crispy_forms_tags %}
 {% load crispy_forms_filters %}
-
+    <style>
+               body{
+            background-image: url("/image/camera.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
+             color: white;
+        }
+    </style>
 {% block content %}
     {% if perms.catalog.create_movie or perms.catalog.edit_movie %}
         <form action="" method="POST" enctype="multipart/form-data">

@@ -1,6 +1,14 @@
 {% extends "catalog/base.html" %}
 {% block content %}
-
+    <style>
+               body{
+            background-image: url("/image/camera.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
+             color: white;
+        }
+    </style>
 <h1>{{ movie.title }}</h1>
 
         <h4><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></h4>

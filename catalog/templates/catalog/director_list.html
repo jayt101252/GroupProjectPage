@@ -1,5 +1,14 @@
 {% extends "catalog/base.html" %}
 {% block content %}
+        <style>
+               body{
+            background-image: url("/image/camera.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
+             color: white;
+        }
+    </style>
     <h1>Director List</h1>
     {% if messages %}
         {% for message in messages %}

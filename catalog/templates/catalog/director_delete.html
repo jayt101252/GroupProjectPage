@@ -1,5 +1,13 @@
 {% extends "catalog/base.html" %}
-
+    <style>
+               body{
+            background-image: url("/image/camera.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
+             color: white;
+        }
+    </style>
 {% block content %}
     {% if perms.catalog.delete_director %}
         <h1>Delete Director {{ director.first_name }}</h1>

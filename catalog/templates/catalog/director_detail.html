@@ -1,6 +1,14 @@
 {% extends "catalog/base.html" %}
 {% block content %}
-
+    <style>
+               body{
+            background-image: url("/image/camera.jpeg");
+            background-position: center;
+            margin: 0;
+            padding: 0;
+             color: white;
+        }
+    </style>
     <h1>Name: {{ director.first_name }} {{ director.last_name }}</h1>
 
         <p><strong>Date of Birth:</strong> {{ director.date_of_birth }}</p>
