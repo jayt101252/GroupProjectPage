@@ -3,7 +3,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    {% if perms.catalog.create_review or perms.catalog.edit_review %}
+    {% if perms.catalog.create_moviereview or perms.catalog.edit_moviereview %}
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}

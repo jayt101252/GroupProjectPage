@@ -1,23 +1,37 @@
 {% extends "catalog/base.html" %}
 {% block content %}
 
-    <h1>Movie Title: {{ movie.title }}</h1>
+<h1>{{ movie.title }}</h1>
 
         <h4><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></h4>
         <br>
         <p><strong>Description:</strong> {{ movie.description }}</p>
         <li><strong>Runtime:</strong> {{ movie.runtime }}</li>
         <li><strong>Genre:</strong> {{ movie.genre.all|join:", " }}</li>
-
-    <div style="margin-left:20px;margin-top:20px">
-
-        <hr>
-        <p><strong><a href="{% url 'movieReview_list' %}"> See Reviews for this Title </a></strong>
-        </p>
-
+        <br>
+        <br>
         <p><strong><a href="{%  url 'movie_list' %} "> Return to List of Movies </a></strong>
-        </p>
+    <div>
 
+        <h3 class="text-center">Reviews</h3>
+        {% if movie.moviereview_set.exists %}
+            {% for review in movie.moviereview_set.all %}
+                    <div class="card" style="margin-left:10px;margin-top:10px">
+                        <div class="card-body" style="font-family:Georgia">
+                            <div class="card-text" style="position:relative;margin-left:5%">
+                                <h5>
+                                    <a href="{{ review.get_absolute_url }}">{{ review }} <a>
+                                </h5>
+                                <p style="font-style: italic"> {{review.review_text}} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <br>
+        <br>
     </div>
 
 {% endblock %}

@@ -1,3 +1,4 @@
+import django.db.models.deletion
 from django.db import models
 from django.urls import reverse  # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User # Used to authenticate User identity against Django default User model
@@ -64,16 +65,16 @@ class MovieReview(models.Model):
 
     # Foreign Keys to match movie review to a movie, and the profile leaving the review
     movie = models.ForeignKey('Movie', on_delete=models.RESTRICT, null=True)
-    user = models.ForeignKey(User, on_delete=models.RESTRICT, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.caption}: ({str(self.star_rating)} {self.review_text})'
+        return f'{self.caption}: {self.star_rating}'
+
 
     def get_absolute_url(self):
-        """Returns the URL to access a detail record for this book."""
+        """Returns the URL to access a detail record for this review."""
         return reverse('review_detail', args=[str(self.id)])
-
 
 class Profile(models.Model):
     # Pulls profile associated with user

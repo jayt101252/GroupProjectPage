@@ -1,17 +1,36 @@
 {% extends "catalog/base.html" %}
 {% block content %}
     <h1>Director List</h1>
-        {% if director_list %}
-            <ul>
-                {% for director in director_list %}
-                    <li>
-                        <a href="{{ director.get_absolute_url }}">{{ director.first_name }} {{ director.last_name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
 
-            <p>There are no directors to display.</p>
+        {% endfor %}
+    {% endif %}
+    {% if director_list %}
+        <table class="table table-bordered">
+            {% for director in director_list %}
+                <tr class="table-secondary">
+                    <td><a href="{{ director.get_absolute_url }}">{{ director.first_name }} {{ director.last_name }}</a></td>
 
-        {% endif %}
+                    {% if user.is_superuser %}
+                        {% if director.movie_set.all %}
+                            <td>Movies Exist - Cannot delete director</td>
+                        {% else %}
+                            <td><a href="{% url 'director_delete' pk=director.pk %}"
+                                   onclick="return confirm('Are you sure you want to delete?')"
+                                   class="btn btn-danger">Delete</a>
+                            </td>
+                        {% endif %}
+                        <td><a href="{% url 'director_update' pk=director.pk %}" class="btn btn-primary">Edit Director</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>There are no directors displayable at the moment.</p>
+    {% endif %}
 {% endblock %}

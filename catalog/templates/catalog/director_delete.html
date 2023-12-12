@@ -1,12 +1,12 @@
 {% extends "catalog/base.html" %}
 
 {% block content %}
-    {% if perms.catalog.review_delete %}
-        <h1>Delete Movie Review {{ moviereview.caption }}</h1>
+    {% if perms.catalog.delete_director %}
+        <h1>Delete Director {{ director.first_name }}</h1>
         <form method="Post">
             {% csrf_token %}
             <input type="submit" class="btn btn-danger" value="Delete">
-            <a href="{% url 'index' pk=moviereview.id %} ">Cancel</a>
+            <a href="{% url 'index' pk=director.id %} ">Cancel</a>
         </form>
     {% else %}
         You do not have permission to access this feature

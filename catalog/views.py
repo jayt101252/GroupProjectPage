@@ -39,7 +39,22 @@ class MovieListView(LoginRequiredMixin, generic.ListView):
 class MovieDetailView(LoginRequiredMixin, generic.DetailView):
     model = Movie
 
+class MovieCreate(CreateView):
+    model = Movie
+    fields = ['title', 'director', 'description', 'runtime', 'genre']
 
+class MovieUpdate(UpdateView):
+    model = Movie
+    fields = ['title', 'director', 'description', 'runtime', 'genre']
+
+def movie_delete(request, pk):
+    author = get_object_or_404(Movie, pk=pk)
+    try:
+        movie.delete()
+        messages.success(request, (movie.title + ' ' + ' has been deleted. Associated reviews deleting.'))
+    except:
+        messages.success(request, (movie.title + ' ' + 'cannot be deleted.'))
+    return redirect('movie_list')
 
 class DirectorListView(LoginRequiredMixin, generic.ListView):
     model = Director
@@ -55,6 +70,17 @@ class DirectorUpdate(UpdateView):
     model = Director
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_photo']
 
+def director_delete(request, pk):
+    author = get_object_or_404(Director, pk=pk)
+    try:
+        director.delete()
+        messages.success(request, (director.first_name + ' ' +
+                                   director.last_name +" has been deleted"))
+    except:
+        messages.success(request, (director.first_name + ' ' + director.last_name + 'cannot be deleted. Movies exist '
+                                                                                    'for the director'))
+    return redirect('director_list')
+
 
 class MovieReviewDetailView(LoginRequiredMixin, generic.DetailView):
     model = MovieReview
@@ -64,12 +90,12 @@ class MovieReviewListView(LoginRequiredMixin, generic.ListView):
 
 
 ### Movie review create, update, and delete functionality in 2 classes and def below ###
-class WriteMovieReviewByUser(LoginRequiredMixin, CreateView):
+class WriteMovieReviewByUser(CreateView):
     model = MovieReview
     fields = ['caption', 'star_rating', 'review_text']
 
 
-class UpdateMovieReviewByUser(LoginRequiredMixin, CreateView):
+class UpdateMovieReviewByUser(UpdateView):
     model = MovieReview
     fields = ['caption', 'star_rating', 'review_text']
 
@@ -82,21 +108,4 @@ def moviereview_delete(request, pk):
     except:
         messages.success(request, (moviereview.user + '\'s review on' + moviereview.movie + ' cannot be deleted.'))
     return redirect('base')
-### Change the base above to something review related in the future ###
 
-
-### Figuring out Movie Reviews and Profiles before building admin movie/director changes
-
-# def form_valid(self, form):
-# post = form.save(commit=False)
-# post.save()
-# return HttpResponseRedirect(reverse('director_list'))
-
-# class DirectorUpdate(UpdateView):
-# model = Director
-# fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_image']
-
-# def form_valid(self, form):
-# post = form.save(commit=False)
-# post.save()
-# return HttpResponseRedirect(reverse('director_list'))

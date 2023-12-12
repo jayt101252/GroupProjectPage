@@ -45,9 +45,20 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"> Reviews </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'write_review' %}">Write Review</a></li>
+                    <li><a class="dropdown-item" href="{% url 'moviereview_create' %}">Write Review</a></li>
                 </ul>
             </li>
+            {% if user.is_superuser %}
+                <ul class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            Admin Functions
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'director_create' %}">Add Director</a></li>
+                        <li><a class="dropdown-item" href="{% url 'movie_create' %}">Add Movie</a></li>
+                    </ul>
+            {% endif %}
 
 
         {% else %}

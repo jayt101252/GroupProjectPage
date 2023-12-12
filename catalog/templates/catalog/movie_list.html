@@ -1,20 +1,32 @@
 {% extends "catalog/base.html" %}
 {% block content %}
     <h1>Movie List</h1>
-        {% if movie_list %}
-            <ul>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
 
-                {% for movie in movie_list %}
-                    <li>
-                        <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
-                    </li>
-                {% endfor %}
+        {% endfor %}
+    {% endif %}
+    {% if movie_list %}
+        <table class="table table-bordered">
+            {% for movie in movie_list %}
+                <tr class="table-secondary">
+                    <td><a href="{{ movie.get_absolute_url }}">{{ movie.title }} by {{ movie.director }}</a></td>
 
-            </ul>
-
-        {% else %}
-
-            <p>There are no movies reviewed yet.</p>
-
-        {% endif %}
+                    {% if user.is_superuser %}
+                            <td><a href="{% url 'movie_delete' pk=movie.pk %}"
+                                   onclick="return confirm('If reviews exist for movie, they will be deleted. Are you sure you want to delete?')"
+                                   class="btn btn-danger">Delete</a>
+                            </td>
+                        <td><a href="{% url 'movie_update' pk=movie.pk %}" class="btn btn-primary">Edit Movie</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>There are no movies currently available on the website.</p>
+    {% endif %}
 {% endblock %}
