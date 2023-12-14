@@ -48,6 +48,7 @@
        <!--Display Login/Logout right-justified in navbar and link to register as user-->
     <ul class="nav navbar-nav ml-auto">
         {% if user.is_authenticated %}
+            <li><a class="nav-link" href="{% url 'profile'%}">View Profile</a></li>
             <li><a class="nav-link" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
             </li>
             <li class="nav-item dropdown">

@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -108,4 +110,35 @@ def moviereview_delete(request, pk):
     except:
         messages.success(request, (moviereview.user + '\'s review on' + moviereview.movie + ' cannot be deleted.'))
     return redirect('base')
+@login_required
+def view_profile(request):
+    profile = request.user.profile
+    preferences = profile.preferences.all()
+    return render(request, 'catalog/profile.html', {'profile': profile, 'preferences': preferences})
+
+
+@login_required
+def edit_profile(request):
+    profile = request.user.profile
+    all_genres = Genre.objects.all()
+    user_reviews = MovieReview.objects.filter(user=request.user)  # Fetch user's reviews
+
+    if request.method == 'POST':
+        bio = request.POST.get('bio')
+        selected_preferences = request.POST.getlist('preferences')
+
+        profile.about = bio
+        profile.preferences.clear()
+        profile.preferences.add(*Genre.objects.filter(id__in=selected_preferences))
+        profile.save()
+
+        messages.success(request, 'Profile updated successfully.')
+        return redirect('profile')  # Redirect to profile view
+
+    return render(request, 'catalog/profile.html', {
+        'profile': profile,
+        'all_genres': all_genres,
+        'user_reviews': user_reviews  # Include user reviews in the context
+    })
+
 

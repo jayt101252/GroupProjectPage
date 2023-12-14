@@ -19,10 +19,13 @@ settings.STATIC_ROOT}), #serve static files when deployed
     path('moviereview/create/', views.WriteMovieReviewByUser.as_view(), name='moviereview_create'),
     path('moviewreview/<int:pk>/update/', views.UpdateMovieReviewByUser.as_view(), name='moviereview_update'),
     path('moviewreview/<int:pk>/delete/', views.moviereview_delete, name='moviereview_delete'),
+    path('profile/', views.view_profile, name='profile'),
     path('director/create/', views.DirectorCreate.as_view(), name='director_create'),
     path('director/<int:pk>/update/', views.DirectorUpdate.as_view(), name='director_update'),
     path('director/<int:pk>/delete/', views.director_delete, name='director_delete'),
     path('movie/create/', views.MovieCreate.as_view(), name='movie_create'),
     path('movie/<int:pk>/update/', views.MovieUpdate.as_view(), name='movie_update'),
     path('movie/<int:pk>/update/', views.movie_delete, name='movie_delete'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
+
 ]
