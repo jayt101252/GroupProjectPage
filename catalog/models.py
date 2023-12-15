@@ -1,4 +1,5 @@
 import django.db.models.deletion
+from django.contrib.auth.decorators import permission_required
 from django.db import models
 from django.urls import reverse  # Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User # Used to authenticate User identity against Django default User model
@@ -88,4 +89,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-

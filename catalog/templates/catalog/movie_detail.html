@@ -1,8 +1,9 @@
 {% extends "catalog/base.html" %}
 {% block content %}
+    {% csrf_token %}
     <style>
                body{
-            background-image: url("/image/camera.jpeg");
+            background-image: url("/media/image/camera.jpeg");
             background-position: center;
             margin: 0;
             padding: 0;
@@ -10,6 +11,14 @@
         }
     </style>
 <h1>{{ movie.title }}</h1>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
 
         <h4><strong>Director:</strong> <a href="{{ movie.director.get_absolute_url }}">{{ movie.director }}</a></h4>
         <br>
@@ -19,8 +28,10 @@
         <br>
         <br>
         <p><strong><a href="{%  url 'movie_list' %} "> Return to List of Movies </a></strong>
-    <div>
+    <br>
 
+
+    <div>
         <h3 class="text-center">Reviews</h3>
         {% if movie.moviereview_set.exists %}
             {% for review in movie.moviereview_set.all %}

@@ -10,7 +10,7 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
                body{
-            background-image: url("/image/camera.jpeg");
+            background-image: url("/media/image/camera.jpeg");
             background-position: center;
             margin: 0;
             padding: 0;
@@ -51,11 +51,6 @@
             <li><a class="nav-link" href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span>Logout</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"> Reviews </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'moviereview_create' %}">Write Review</a></li>
-                </ul>
             </li>
             {% if user.is_superuser %}
                 <ul class="nav-item dropdown">
@@ -66,6 +61,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{% url 'director_create' %}">Add Director</a></li>
                         <li><a class="dropdown-item" href="{% url 'movie_create' %}">Add Movie</a></li>
+                        <li><a class="dropdown-item" href="{% url 'moviereview_create' %}">Add Review</a></li>
                     </ul>
             {% endif %}
 

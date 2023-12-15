@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Avg
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, request
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib import messages
@@ -71,7 +71,7 @@ class DirectorUpdate(UpdateView):
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death', 'director_photo']
 
 def director_delete(request, pk):
-    author = get_object_or_404(Director, pk=pk)
+    director = get_object_or_404(Director, pk=pk)
     try:
         director.delete()
         messages.success(request, (director.first_name + ' ' +
@@ -90,6 +90,7 @@ class MovieReviewListView(LoginRequiredMixin, generic.ListView):
 
 
 ### Movie review create, update, and delete functionality in 2 classes and def below ###
+
 class WriteMovieReviewByUser(CreateView):
     model = MovieReview
     fields = ['caption', 'star_rating', 'review_text']
@@ -108,4 +109,3 @@ def moviereview_delete(request, pk):
     except:
         messages.success(request, (moviereview.user + '\'s review on' + moviereview.movie + ' cannot be deleted.'))
     return redirect('base')
-

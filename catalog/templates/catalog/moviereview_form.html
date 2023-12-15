@@ -3,7 +3,7 @@
 {% load crispy_forms_filters %}
     <style>
                body{
-            background-image: url("/image/camera.jpeg");
+            background-image: url("/media/image/camera.jpeg");
             background-position: center;
             margin: 0;
             padding: 0;
@@ -14,13 +14,13 @@
 {% block content %}
     {% if perms.catalog.create_moviereview or perms.catalog.edit_moviereview %}
         <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
+                {% csrf_token %}
+                {{ form|crispy }}
 
             <input type="submit" value="Submit"/>
         </form>
     {% else %}
-        You do not have permission to access this feature
+        You cannot post a review with current credentials.
         <a href="{% url 'index' %}">Home</a>
     {% endif %}
 {% endblock %}
